@@ -8,17 +8,17 @@ import { Category } from '../types/category';
 export class CategoryService {
   http = inject(HttpClient);
   constructor() { }
-  private url="http://localhost:3000/category"
+  private url="http://localhost:3001/category"
 
 
   getCategories(){
-    return this.http.get<Category[]>("http://localhost:3000/category");
+    return this.http.get<Category[]>("http://localhost:3001/category");
   }
   getCategoryById(id:string){
     return this.http.get<Category>(`${this.url}/${id}`);
   }
   addCategory(name:string){
-return this.http.post("http://localhost:3000/category",{
+return this.http.post("http://localhost:3001/category",{
   name: name,
 });
   }
@@ -29,6 +29,6 @@ return this.http.post("http://localhost:3000/category",{
       }
 
       deleteCategoryById(id:string){
-        return this.http.delete('http://localhost:3000/category/' + id);
+        return this.http.delete('http://localhost:3001/category/' + id);
       }
 }

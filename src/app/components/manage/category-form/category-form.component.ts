@@ -7,6 +7,7 @@ import { CategoriesComponent } from '../categories/categories.component';
 import { CategoryService } from '../../../services/category.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-category-form',
@@ -18,6 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     MatButtonModule,
     MatLabel,
+    MatSelectModule
   ],
   templateUrl: './category-form.component.html',
   styleUrl: './category-form.component.css',

@@ -1,0 +1,52 @@
+<div class="relative overflow-hidden rounded-t-lg mb-4 w-full">
+  <div [routerLink]="'/product/'+product._id">
+    <img
+      [src]="product.images[0]"
+      alt="{{ product.name }}"
+      class="w-full h-48 object-cover transition-transform duration-300 transform group-hover:scale-105"
+    />
+  
+  
+  <div class="flex flex-col justify-between w-full h-full">
+    <h4 class="text-lg font-semibold text-gray-700 mb-2">
+      {{ product.name }}
+    </h4>
+    <p class="text-sm text-gray-500 mb-2">{{ product.shortDescription }}</p>
+
+    <div class="flex justify-between w-100 items-baseline mt-auto gap-4">
+      <span class="text-lg font-bold text-purple-400 "><s>{{ product.price }}₹ </s></span>
+      
+      <span  class="text-sm text-orange-400"> {{ product.discount}}%OFF </span>
+            
+      <span class="text-lg font-bold text-purple-500  gap-x-10">{{ SellingPrice }}₹ </span>
+  
+  </div>
+  <div class="flex justify-center align-top w-80 h-10">
+    <div class="flex space-x-2">
+      <button
+         class="bg-purple-600 text-white px-1  w-30  hover:bg-purple-500 transition-colors duration-300"
+      mat-fab color="warn"
+        title="Add to WishList"
+        (click)="addToWishList(product)"
+      >
+
+      @if(isInWishList(product)){
+        <mat-icon>favorite</mat-icon>
+      }
+      <mat-icon>favorite_border</mat-icon>
+       
+      </button>
+    
+
+
+      <button
+      class="bg-purple-600 text-white px-1 py-1 w-30  hover:bg-purple-500 transition-colors duration-300"
+    >
+      Add to Cart
+      <i class="fas fa-shopping-cart"></i>
+    </button>
+    </div>
+    
+  </div>
+</div>
+  </div>
