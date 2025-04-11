@@ -1,0 +1,59 @@
+<div class="max-w-4xl mx-auto p-4">
+    <h2 class="text-2xl font-bold mb-4 text-purple-700">Shopping Cart</h2>
+  
+    <!-- Cart Item -->
+    <div class="bg-white shadow rounded-lg p-4 mb-4 flex flex-col md:flex-row gap-4 items-center">
+      @for (product of cartItems; track $index){
+        <img
+        src="https://via.placeholder.com/100"
+        alt="Product"
+        class="w-24 h-24 object-cover rounded"
+      />
+      }
+      <div class="flex-1 w-full">
+        <h3 class="text-lg font-semibold text-gray-800">Product Name:</h3>
+        <p class="text-gray-500 text-sm">Short description of the product.</p>
+        <div class="flex items-center mt-2 space-x-2">
+          <span class="text-purple-500 font-bold">₹120</span>
+          <span class="text-sm line-through text-gray-400">₹150</span>
+          <span class="text-green-500 text-sm">20% OFF</span>
+        </div>
+        <!-- Quantity Control -->
+       
+
+
+      
+      <div class="flex items-center mt-4 space-x-2">
+        <button class="px-2 py-1 bg-purple-500 text-white rounded hover:bg-purple-600">-</button>
+        <span class="w-8 text-center">1</span>
+        <button class="px-2 py-1 bg-purple-500 text-white rounded hover:bg-purple-600">+</button>
+      </div>
+    </div>
+
+    <!-- Remove Button -->
+    <button class="text-red-500 hover:text-red-700 text-sm">Remove</button>
+    </div>
+  
+    <!-- Cart Summary -->
+    <div class="bg-gray-100 p-4 rounded-lg shadow">
+      <h3 class="text-xl font-semibold mb-4 text-purple-700">Order Summary</h3>
+      <div class="flex justify-between mb-2">
+        <span>Subtotal</span>
+        <span>₹120</span>
+      </div>
+      <div class="flex justify-between mb-2">
+        <span>Discount</span>
+        <span class="text-green-600">-₹30</span>
+      </div>
+      <div class="flex justify-between font-bold text-lg">
+        <span>Total</span>
+        <span>₹90</span>
+      </div>
+      <button
+        class="mt-4 w-full py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition duration-200"
+      >
+        Proceed to Checkout
+      </button>
+    </div>
+  </div>
+  

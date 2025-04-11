@@ -5,11 +5,12 @@ import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { CarouselComponent } from '../carousel/carousel.component'; 
 import { WishlistCartService } from '../../services/wishlist-cart.service';
+import { ShoppingcartService } from '../../services/shoppingcart.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NgFor,CommonModule,NgIf,ProductCardComponent,CarouselComponent],
+  imports: [NgFor,CommonModule,ProductCardComponent,CarouselComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -20,7 +21,7 @@ featuredProducts: Product[]=[];
 item: any;
 
 wishlistService = inject(WishlistCartService)
-
+shoppingCartService = inject(ShoppingcartService);
 ngOnInit(){
 
   this.customerService.getFeaturedProducts().subscribe((result)=>{
@@ -33,6 +34,7 @@ ngOnInit(){
     console.log(this.newProducts);
   });
   this.wishlistService.init();
+  this.shoppingCartService.init();
 }
 trackByFn(index: number, item: any): number {
   return item.id; // Use a unique identifier such as id

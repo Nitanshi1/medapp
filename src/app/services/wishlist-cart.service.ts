@@ -13,7 +13,7 @@ export class WishlistCartService {
   http = inject(HttpClient);
 
   init() {
-    this.getWishLists().subscribe((result) => {
+   return  this.getWishLists().subscribe((result) => {
       this.wishlists = result;
     });
   }
@@ -23,7 +23,7 @@ export class WishlistCartService {
   }
 
   addInWishList(productId: string) {
-    return this.http.post(environment.apiUrl + '/customer/wishlists/', productId,{});
+    return this.http.post(environment.apiUrl + '/customer/wishlists/' + productId,{});
   }
 
   removeFromWishLists(productId: string) {
