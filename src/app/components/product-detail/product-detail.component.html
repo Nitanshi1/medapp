@@ -41,11 +41,35 @@
             </div>
 
             <!-- Product Short Description -->
-            <p class="text-gray-700 mt-6 font-semibold mt-2">
+            <p class="text-gray-700 mt-6 font-semibold">
               {{ product.shortDescription }}
             </p>
-          
+            <div class="flex justify-center align-top w-80 h-10">
+              <div class="flex space-x-2">
                 <button
+                  class="mt-0 px-3 py-1 text-purple-500 rounded-lg shadow  focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"
+                  mat-fab
+                  color="warn"
+                  title="Add to WishList"
+                  (click)="addToWishList(product)"
+                >
+                  <mat-icon class="text-white-500">
+                    {{ isInWishList(product) ? 'favorite' : 'favorite_border' }}
+                  </mat-icon>
+                </button>
+                <button
+                (click)="addToCart(product)"
+                class="mt-0 px-4  bg-purple-600 text-white rounded-lg shadow hover:bg-purple-700"
+              >
+                <mat-icon>
+                  {{ isProductInCart(product._id!) ? 'remove_shopping_cart' : 'add_shopping_cart' }}
+                </mat-icon>
+              </button>
+           
+              </div>
+            </div>
+            
+                <!-- <button
                   class="mt-6 px-6 py-3 bg-purple-600 text-white rounded-lg shadow hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"
                   mat-fab
                   color="warn"
@@ -55,15 +79,11 @@
                   @if(isInWishList(product)){
                   <mat-icon class="text-red-500">favorite</mat-icon> Remove from WishList }
                   <mat-icon class="text-red-500">favorite_border</mat-icon> Add to WishList
-                </button>
+                </button> -->
               
 
             <!-- Add to Cart Button -->
-            <button
-              class="mt-6 px-6 py-3 bg-purple-600 text-white rounded-lg shadow hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"
-            >
-              Add to Cart
-            </button>
+      
           </div>
         </div>
       </div>
